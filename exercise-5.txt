@@ -1,0 +1,14 @@
+mysql> USE decodemtl_addressbook;
+Database changed
+
+mysql> CREATE TABLE Account(account_number int);
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE Addressbook(address_info varchar(30));
+Query OK, 0 rows affected (0.02 sec)
+
+mysql> CREATE TABLE Entry(entry_info varchar(30));
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> CREATE TABLE Test(test_info varchar(30));
+Query OK, 0 rows affected (0.01 sec)

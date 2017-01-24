@@ -1,0 +1,67 @@
+mysql> CREATE DATABASE hatching_chick;
+Query OK, 1 row affected (0.01 sec)
+
+mysql> USE hatching_chick;
+Database changed
+
+mysql> CREATE TABLE Chicken_Barn (id int auto_increment primary key, type enum('rooster','hen','chick'), Date_of_Birth datetime, Coming_of_Age datetime,  Date_of_Expiry datetime );                               
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> SELECT * FROM Chicken_Barn;
++----+---------+---------------------+---------------------+---------------------+
+| id | type    | Date_of_Birth       | Coming_of_Age       | Date_of_Expiry      |
++----+---------+---------------------+---------------------+---------------------+
+|  1 | rooster | 0000-00-00 00:00:00 | NULL                | NULL                |
+|  2 | rooster | 2015-09-22 00:00:00 | NULL                | NULL                |
+|  3 | chick   | 2016-08-15 00:00:00 | 2017-02-12 00:00:00 | NULL                |
+|  4 | chick   | 2016-03-12 00:00:00 | 2017-09-02 00:00:00 | NULL                |
+|  5 | hen     | 2013-03-12 00:00:00 | NULL                | 2016-04-29 00:00:00 |
+|  6 | hen     | 2015-10-22 00:00:00 | NULL                | NULL                |
+|  7 | hen     | 2014-05-17 00:00:00 | NULL                | NULL                |
+|  8 | rooster | 2014-07-01 00:00:00 | NULL                | NULL                |
+|  9 | chick   | 2016-03-12 00:00:00 | 2017-09-02 00:00:00 | NULL                |
+| 10 | hen     | 2014-05-17 00:00:00 | NULL                | 2016-12-24 00:00:00 |
+| 11 | hen     | 2013-06-17 00:00:00 | NULL                | NULL                |
++----+---------+---------------------+---------------------+---------------------+
+11 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Chicken_Barn WHERE type = "rooster";                                                                                                                                              
++----+---------+---------------------+---------------+----------------+
+| id | type    | Date_of_Birth       | Coming_of_Age | Date_of_Expiry |
++----+---------+---------------------+---------------+----------------+
+|  1 | rooster | 0000-00-00 00:00:00 | NULL          | NULL           |
+|  2 | rooster | 2015-09-22 00:00:00 | NULL          | NULL           |
+|  8 | rooster | 2014-07-01 00:00:00 | NULL          | NULL           |
++----+---------+---------------------+---------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Chicken_Barn WHERE type = "hen";
++----+------+---------------------+---------------+---------------------+
+| id | type | Date_of_Birth       | Coming_of_Age | Date_of_Expiry      |
++----+------+---------------------+---------------+---------------------+
+|  5 | hen  | 2013-03-12 00:00:00 | NULL          | 2016-04-29 00:00:00 |
+|  6 | hen  | 2015-10-22 00:00:00 | NULL          | NULL                |
+|  7 | hen  | 2014-05-17 00:00:00 | NULL          | NULL                |
+| 10 | hen  | 2014-05-17 00:00:00 | NULL          | 2016-12-24 00:00:00 |
+| 11 | hen  | 2013-06-17 00:00:00 | NULL          | NULL                |
++----+------+---------------------+---------------+---------------------+
+5 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Chicken_Barn WHERE type = "chick";
++----+-------+---------------------+---------------------+----------------+
+| id | type  | Date_of_Birth       | Coming_of_Age       | Date_of_Expiry |
++----+-------+---------------------+---------------------+----------------+
+|  3 | chick | 2016-08-15 00:00:00 | 2017-02-12 00:00:00 | NULL           |
+|  4 | chick | 2016-03-12 00:00:00 | 2017-09-02 00:00:00 | NULL           |
+|  9 | chick | 2016-03-12 00:00:00 | 2017-09-02 00:00:00 | NULL           |
++----+-------+---------------------+---------------------+----------------+
+3 rows in set (0.00 sec)
+
+mysql> SELECT * FROM Chicken_Barn WHERE Coming_of_Age = "2017-09-02";                                                                                                                                          
++----+-------+---------------------+---------------------+----------------+
+| id | type  | Date_of_Birth       | Coming_of_Age       | Date_of_Expiry |
++----+-------+---------------------+---------------------+----------------+
+|  4 | chick | 2016-03-12 00:00:00 | 2017-09-02 00:00:00 | NULL           |
+|  9 | chick | 2016-03-12 00:00:00 | 2017-09-02 00:00:00 | NULL           |
++----+-------+---------------------+---------------------+----------------+
+2 rows in set (0.00 sec)

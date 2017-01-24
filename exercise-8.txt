@@ -1,0 +1,23 @@
+mysql> ALTER TABLE Account ADD COLUMN (id int auto_increment primary key, email varchar(255), password varchar(30), createdOn DATETIME, modifiedOn DATETIME);                                                       
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Account DROP COLUMN account_number;
+Query OK, 0 rows affected (0.04 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Addressbook ADD COLUMN (id int auto_increment primary key, accountId int, name varchar(255), createdOn datetime, modifiedOn datetime);                                                           
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Addressbook DROP COLUMN address_info;
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Entry ADD COLUMN (id int auto_increment primary key, addressBookId int, firstName varchar(255), lastName varchar(255), birthday datetime, type enum('home','work','other'), subtype enum('phone','address','email'), contentLineOne varchar(255), contentLineTwo varchar(255), contentLineThree varchar(255), contentLineFour varchar(255), contentLineFive varchar(255));                                           
+Query OK, 0 rows affected (0.03 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> ALTER TABLE Entry DROP COLUMN entry_info;
+Query OK, 0 rows affected (0.02 sec)
+Records: 0  Duplicates: 0  Warnings: 0
